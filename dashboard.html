@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HealthCare Dashboard</title>
+  <link rel="stylesheet" href="dashboard_style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div style="width:200px;height:200px;overflow:hidden;" >
+        <img src="logo.png" width="200px" height="auto">
+     </div>
+    <nav>
+      <ul>
+        <li class="active"><span>🏠</span> Dashboard</li>
+        <li><span>🔍</span> Search Doctors</li>
+        <li><span>📅</span> Book Appointment</li>
+        <li><span>🗂️</span> Appointments</li>
+      </ul>
+      <div class="account-section">
+        <ul>
+          <li><span>👤</span> Profile</li>
+          <li><span>⚙️</span> Settings</li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+  <main>
+    <header>
+      <nav class="top-nav">
+        <ul>
+          <li class="active">Home</li>
+          <li>My Appointments</li>
+          <li>Profile</li>
+        </ul>
+        <button id="bookBtn">+ Book New Appointment</button>
+        <div class="user-info">
+          <img src="" alt="Emma Wilson">
+          <span>Emma Wilson</span>
+        </div>
+      </nav>
+    </header>
+    <section class="dashboard">
+      <h2>Welcome back, Emma!</h2>
+      <p>Here's an overview of your upcoming appointments and health information.</p>
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-icon">📅</div>
+          <div>
+            <div class="stat-number" id="totalAppointments">12</div>
+            <div class="stat-label">Total Appointments</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⏳</div>
+          <div>
+            <div class="stat-number" id="upcomingAppointments">3</div>
+            <div class="stat-label">Upcoming Appointments</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">✅</div>
+          <div>
+            <div class="stat-number" id="pastAppointments">9</div>
+            <div class="stat-label">Past Appointments</div>
+          </div>
+        </div>
+      </div>
+      <div class="appointments-section">
+        <div class="appointments-header">
+          <h3>Upcoming Appointments</h3>
+          <div>
+            <button id="viewCard" class="active">Card</button>
+            <button id="viewList">List</button>
+          </div>
+        </div>
+        <div class="appointments-cards" id="appointmentsCards">
+          <!-- Cards will be injected by JS -->
+        </div>
+      </div>
+      <div class="past-appointments-section">
+        <h3>Past Appointments</h3>
+        <input type="text" id="searchPast" placeholder="Search appointments...">
+        <table>
+          <thead>
+            <tr>
+              <th>Doctor</th>
+              <th>Specialty</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="pastAppointmentsTable">
+            <!-- Rows will be injected by JS -->
+          </tbody>
+        </table>
+        <div class="pagination">
+          <button id="prevPage">&lt; Previous</button>
+          <span id="pageInfo">1</span>
+          <button id="nextPage">Next &gt;</button>
+        </div>
+      </div>
+    </section>
+    <aside class="profile-sidebar">
+      <div class="profile-card">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Emma Wilson">
+        <h4>Emma Wilson</h4>
+        <div class="profile-info">
+          <div>Patient ID: <b>P-29384756</b></div>
+          <div>emma.wilson@example.com</div>
+          <div>(555) 123-4567</div>
+          <div>May 15, 1985</div>
+          <div>New York, NY</div>
+        </div>
+        <button>Edit Profile</button>
+      </div>
+      <div class="medical-info">
+        <h5>Medical Information</h5>
+        <div>Blood Type: <b>A+</b></div>
+        <div>Allergies: <b>Penicillin, Peanuts</b></div>
+        <div>Primary Physician: <b>Dr. Robert Thompson</b></div>
+        <div>Insurance: <b>BlueCross BlueShield</b></div>
+        <button>View Medical Records</button>
+      </div>
+    </aside>
+  </main>
+  <script src="dashboard_script.js"></script>
+</body>
+</html>
