@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Dashboard | AppointMed</title>
+  <link rel="stylesheet" href="dashboard_style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="icon" href="logo.png">
+</head>
+<body>
+  <aside class="sidebar">
+
+    <div class="logo">
+      <img src="logo.png" alt="AppointMed Logo">
+      <span>Appoint<span class="highlight">Med</span></span>
+    </div>
+
+    <nav>
+      <p class="main-category">MAIN</p>
+      <ul>
+        <li class="active">
+          <i class="fa-solid fa-table-columns"></i>
+          Dashboard
+        </li>
+        <li>
+          <i class="fa-solid fa-magnifying-glass"></i>
+          Search Doctors
+        </li>
+        <li>
+          <i class="fa-regular fa-calendar-check"></i>
+          Book Appointment
+        </li>
+        <li>
+          <i class="fa-solid fa-clock"></i>
+          Appointments
+        </li>
+      </ul>
+      <div class="account-section">
+        <p class="account-category">ACCOUNT</p>
+        <ul>
+          <li>
+            <i class="fa-regular fa-user"></i>
+            Profile
+          </li>
+          <li>
+            <i class="fa-solid fa-gear"></i>
+            Settings
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <header>
+    <nav class="top-nav">
+      <ul>
+        <li class="active">Home</li>
+        <li>My Appointments</li>
+        <li>Profile</li>
+      </ul>
+
+      <div class="notifications">
+        <i class="fa-regular fa-bell"></i>
+        <div class="notification-badge" id="notificationBadge" style="display:none;">3</div>
+        <div class="notification-dropdown" id="notificationDropdown" style="display:none;">
+          <div class="notification-list" id="notificationList">
+            <!-- Notifications will be injected by JS -->
+          </div>
+          <a href="#" class="view-all">View all notifications</a>
+        </div>
+      </div>
+
+      <div class="user-info" id="userProfile">
+        <img src="assets/images/woman.jpg" alt="Emma Wilson">
+        <span>Emma Wilson</span>
+        <i class="fa-solid fa-chevron-down"></i>
+        <div class="profile-dropdown" id="profileDropdown" style="display:none;">
+          <a href="#" id="profileLink">Your Profile</a>
+          <a href="#" id="settingsLink">Settings</a>
+          <a href="#" id="signoutLink">Sign out</a>
+        </div>
+      </div>
+      
+    </nav>
+  </header>
+
+  <main>
+    <section class="dashboard">
+
+      <div class="dashboard-header">
+        <div class="dashboard-title">
+            <h1>Welcome back, Emma!</h1>
+            <p class="dashboard-subtitle">Here's an overview of your upcoming appointments and health information.</p>
+        </div>
+        <button id="bookBtn">Book New Appointment</button>
+      </div>
+      
+      <div class="stats">
+        <div class="stat-card">
+            <div class="stat-icon calendar">
+                <i class="fa-regular fa-calendar-days"></i>
+            </div>
+            <div class="stat-content">
+                <span class="stat-label">Total Appointments</span>
+                <div class="stat-number" id="totalAppointments">12</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon clock">
+                <i class="fa-regular fa-clock"></i>
+            </div>
+            <div class="stat-content">
+                <span class="stat-label">Upcoming Appointments</span>
+                <div class="stat-number" id="upcomingAppointments">3</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon rotate">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+            </div>
+            <div class="stat-content">
+                <span class="stat-label">Past Appointments</span>
+                <div class="stat-number" id="pastAppointments">9</div>
+            </div>
+        </div>
+      </div>
+
+      <div class="appointments-section">
+        <div class="appointments-header">
+          <h3>Upcoming Appointments</h3>
+          <div>
+            <button id="viewCard" class="active">Card</button>
+            <button id="viewList">List</button>
+          </div>
+        </div>
+        <div class="appointments-cards" id="appointmentsCards">
+          <!-- Cards will be injected by JS -->
+        </div>
+      </div>
+      <div class="past-appointments-section">
+        <h3>Past Appointments</h3>
+        <input type="text" id="searchPast" placeholder="Search appointments...">
+        <table>
+          <thead>
+            <tr>
+              <th>Doctor</th>
+              <th>Specialty</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="pastAppointmentsTable">
+            <!-- Rows will be injected by JS -->
+          </tbody>
+        </table>
+        <div class="pagination">
+          <button id="prevPage">&lt; Previous</button>
+          <span id="pageInfo">1</span>
+          <button id="nextPage">Next &gt;</button>
+        </div>
+      </div>
+    </section>
+    <aside class="profile-sidebar">
+      <div class="profile-card">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Emma Wilson">
+        <h4>Emma Wilson</h4>
+        <div class="profile-info">
+          <div>Patient ID: <b>P-29384756</b></div>
+          <div>emma.wilson@example.com</div>
+          <div>(555) 123-4567</div>
+          <div>May 15, 1985</div>
+          <div>New York, NY</div>
+        </div>
+        <button>Edit Profile</button>
+      </div>
+      <div class="medical-info">
+        <h5>Medical Information</h5>
+        <div>Blood Type: <b>A+</b></div>
+        <div>Allergies: <b>Penicillin, Peanuts</b></div>
+        <div>Primary Physician: <b>Dr. Robert Thompson</b></div>
+        <div>Insurance: <b>BlueCross BlueShield</b></div>
+        <button>View Medical Records</button>
+      </div>
+    </aside>
+  </main>
+  <script src="dashboard_script.js"></script>
+</body>
+</html>
